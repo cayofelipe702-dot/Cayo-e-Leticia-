@@ -1,99 +1,144 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cayo & Leticia 🤍</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }.container {
-  background: white;
-  width: 90%;
-  max-width: 800px;
-  padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  text-align: center;
-  animation: fadeIn 1.2s ease-in-out;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosso Amor ❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
 }
 
-h1 {
-  margin-top: 0;
-  font-size: 28px;
-  color: #e75480;
+.container{
+    text-align:center;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(0,0,0,0.2);
+    width:90%;
+    max-width:400px;
+    color:white;
 }
 
-.heart {
-  font-size: 40px;
-  animation: pulse 1.5s infinite;
+h1{
+    margin-bottom:10px;
+    font-size:24px;
 }
 
-.text-box {
-  background: #fff0f5;
-  padding: 20px;
-  border-radius: 15px;
-  margin: 20px 0;
-  text-align: left;
-  line-height: 1.6;
+.box{
+    background: rgba(255,255,255,0.2);
+    padding:10px;
+    border-radius:12px;
+    margin:10px 0;
+    font-size:14px;
 }
 
-.date {
-  margin-top: 25px;
-  font-weight: bold;
-  color: #555;
+input{
+    padding:10px;
+    border:none;
+    border-radius:10px;
+    width:80%;
+    margin-top:10px;
+    text-align:center;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+button{
+    margin-top:10px;
+    padding:8px 20px;
+    border:none;
+    border-radius:20px;
+    background:white;
+    color:#ff4d6d;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+button:hover{
+    background:#ffe3ec;
 }
 
-  </style>
+#conteudo{
+    display:none;
+}
+
+#contador{
+    font-size:18px;
+    font-weight:bold;
+    margin-top:10px;
+}
+</style>
 </head>
-<body><script>
-  const senhaCorreta = "cayofelipe20";
-  const senhaDigitada = prompt("Esta página é protegida. Digite a senha para acessar:");
 
-  if (senhaDigitada !== senhaCorreta) {
-    document.write("<h2 style='font-family:Arial;text-align:center;margin-top:50px;'>Acesso negado 🤍</h2>");
-    throw new Error("Acesso bloqueado");
-  }
-</script><div class="container">
-  <h1>Cayo & Leticia</h1>
-  <div class="heart">🤍</div>  <div class="text-box">
-    Amor a gente já passou por tanta coisa, momentos bons, momentos difíceis, mas mesmo assim a gente continua aqui, tentando fazer dar certo. E isso significa muito pra mim.Você é uma pessoa tão bondosa, tão gentil. Eu vejo o quanto você faz por mim, o quanto se preocupa, o quanto tenta me agradar e me fazer feliz. Às vezes você nem percebe, mas suas atitudes mostram o tamanho do seu coração. Eu admiro muito isso em você.
+<body>
 
-Eu sou muito apaixonada por você. Pelo seu jeito, pela sua força, pelo homem que você é. Eu admiro sua determinação, sua vontade de lutar, sua forma de não desistir fácil. Isso me dá ainda mais vontade de estar do seu lado.
+<div class="container">
 
-Eu sei que nem sempre é fácil pra gente, mas eu quero que você saiba que eu estou aqui. Pra tudo. Pra te apoiar, pra te ouvir, pra te ajudar, pra segurar sua mão quando precisar. Você não está sozinho.
+<div id="login">
+    <h1>Digite nossa senha ❤️</h1>
+    <input type="password" id="senha" placeholder="Digite aqui">
+    <br>
+    <button onclick="verificar()">Entrar</button>
+</div>
 
-Eu quero construir um futuro com você. Quero crescer junto, conquistar nossas coisas juntos, realizar nossos sonhos juntos. Eu escolho você todos os dias.
+<div id="conteudo">
+    <h1>Desde 20/06/2024 ❤️</h1>
 
-Eu te amo muito Cayo 🤍
+    <div class="box">
+        Cada segundo ao seu lado é o melhor presente da minha vida.
+    </div>
 
-  </div>  <div class="text-box">
-    Oi meu amor, passei aqui pra te dizer que eu te amo muito, gosto muito de como você é comigo, cada abraço, cada carinho, cada momentos nossos juntos sempre vai ficar guardado em meu coração.Amo muito sua pessoa, seu jeito de ser, essa menina espontânea, linda, doida, faz de tudo para tudo ficar bem. Admiro sua força de vontade e a paciência que tem comigo.
+    <div class="box">
+        Nosso amor só cresce a cada dia que passa.
+    </div>
 
-Já tivemos dias bons e dias ruins como qualquer casal, mas o importante é que estávamos juntos em todos e sempre superando os problemas.
+    <div id="contador"></div>
+</div>
 
-Saiba que estarei aqui sempre que você precisar amor, pra qualquer coisa, pode contar comigo sempre. Iremos resolver tudo juntos e crescer para termos um futuro lindo, e o mais importante: sempre juntos e um apoiando o outro.
+</div>
 
-Eu te amo muito Leticia 🤍
+<script>
+function verificar(){
+    var senha = document.getElementById("senha").value;
+    if(senha === "cayofelipe20"){
+        document.getElementById("login").style.display="none";
+        document.getElementById("conteudo").style.display="block";
+        iniciarContador();
+    }else{
+        alert("Senha incorreta ❤️");
+    }
+}
 
-  </div>  <div class="date">
-    Nosso começo: 05 de setembro de 2025 às 20:00 🤍
-  </div></div></body>
+function iniciarContador(){
+    var dataInicio = new Date("June 20, 2024 00:00:00").getTime();
+
+    setInterval(function(){
+        var agora = new Date().getTime();
+        var diferenca = agora - dataInicio;
+
+        var dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+        var horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+        var minutos = Math.floor((diferenca / (1000 * 60)) % 60);
+        var segundos = Math.floor((diferenca / 1000) % 60);
+
+        document.getElementById("contador").innerHTML =
+        dias + " dias, " +
+        horas + " horas, " +
+        minutos + " minutos e " +
+        segundos + " segundos juntos ❤️";
+    },1000);
+}
+</script>
+
+</body>
 </html>

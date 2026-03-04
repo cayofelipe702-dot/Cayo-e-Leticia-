@@ -1,246 +1,305 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cayo & Leticia 🤍</title>
+<title>Nosso Amor ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-/* ===== RESPONSIVIDADE AUTOMÁTICA ===== */
-html {
-  font-size: clamp(14px, 1.2vw, 18px);
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#5a0000,#142850,#2b0033);
+background-size:200% 200%;
+color:white;
+overflow-x:hidden;
+text-align:center;
 }
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #8b0000, #1a1a8b);
-  background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
-  overflow-x: hidden;
-  color: white;
-  text-align: center;
+/* RESPONSIVIDADE */
+@media (min-width: 1024px){
+  body{display:flex;justify-content:center;}
+  #conteudo{max-width:900px;width:100%;}
 }
 
-@keyframes gradientMove {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
+/* LOGIN */
+#login{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 
-/* ===== TELA SENHA ===== */
-#senhaTela {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+#login input{
+padding:12px;
+border-radius:20px;
+border:none;
+outline:none;
+width:220px;
+text-align:center;
 }
 
-input {
-  padding: 10px;
-  border-radius: 20px;
-  border: none;
-  width: 200px;
-  text-align: center;
+#login button{
+margin-top:10px;
+padding:10px 20px;
+border:none;
+border-radius:20px;
+background:linear-gradient(45deg,#ff4b2b,#ff416c);
+color:white;
+cursor:pointer;
 }
 
-button {
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: none;
-  margin-top: 10px;
-  cursor: pointer;
+/* CONTEÚDO */
+#conteudo{
+display:none;
+padding:30px 15px;
+animation:fadeIn 1.5s ease;
 }
 
-/* ===== CONTEÚDO ===== */
-#conteudo {
-  display: none;
-  padding: 20px;
-  max-width: 900px;
-  margin: auto;
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
 }
 
-h1 {
-  margin-top: 20px;
+h1{margin-bottom:5px;}
+.data{margin-bottom:10px;font-weight:300;}
+#contador{margin-bottom:30px;font-size:15px;}
+
+/* BALÕES */
+.balao{
+max-width:650px;
+margin:20px auto;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-#contador {
-  margin-bottom: 30px;
-  font-size: 1.2rem;
+.conteudo-texto{
+max-height:110px;
+overflow:hidden;
+transition:max-height 0.8s cubic-bezier(0.65,0,0.35,1);
+line-height:1.6;
+font-size:15px;
 }
 
-/* ===== BALÕES ===== */
-.balao {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  border-radius: 25px;
-  margin: 20px auto;
-  max-width: 90%;
-  cursor: pointer;
-  transition: 0.4s;
+.balao.expandido .conteudo-texto{max-height:2000px;}
+
+.btn-ler{
+margin-top:15px;
+background:linear-gradient(45deg,#ff4b2b,#ff416c);
+border:none;
+padding:8px 18px;
+border-radius:20px;
+color:white;
+cursor:pointer;
 }
 
-.balao:hover {
-  transform: scale(1.02);
+/* FOTOS (um pouco maior) */
+.fotos{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+margin-top:30px;
 }
 
-.balao p {
-  max-height: 120px;
-  overflow: hidden;
-  transition: max-height 0.8s ease;
-  text-align: left;
+.foto-balao{
+width:175px;
+height:175px;
+border-radius:20px;
+background:rgba(255,255,255,0.08);
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+overflow:hidden;
+cursor:pointer;
 }
 
-.balao.ativo p {
-  max-height: 2000px;
+.foto-balao input{
+position:absolute;
+width:100%;
+height:100%;
+opacity:0;
+cursor:pointer;
 }
 
-/* ===== BALÕES DE FOTO ===== */
-.foto-balao {
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
+.foto-balao img{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
-.foto-balao img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
+/* PLAYER YOUTUBE */
+.player-box{
+margin-top:30px;
+background:rgba(255,255,255,0.08);
+padding:15px;
+border-radius:20px;
+display:none;
 }
 
-/* ===== PLAYER ===== */
-#playerMusica {
-  margin-top: 30px;
+.player-box img{
+width:120px;
+border-radius:15px;
+margin-bottom:10px;
 }
 
-iframe {
-  border-radius: 20px;
+iframe{
+border-radius:15px;
 }
 
-/* ===== PETALAS + CORAÇÕES ===== */
-.petal {
-  position: fixed;
-  top: -10px;
-  font-size: 20px;
-  animation: cair linear infinite;
-  pointer-events: none;
+/* PETALAS + CORAÇÕES */
+.petal{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:cair linear infinite;
+pointer-events:none;
 }
 
-@keyframes cair {
-  to {
-    transform: translateY(110vh) rotate(360deg);
-  }
+@keyframes cair{
+to{transform:translateY(110vh) rotate(360deg);}
 }
 </style>
 </head>
 
 <body>
 
-<div id="senhaTela">
-  <h2>Digite nossa senha 🤍</h2>
-  <input type="password" id="senhaInput" placeholder="Senha">
-  <button onclick="verificarSenha()">Entrar</button>
+<div id="login">
+<h2>Digite nossa senha ❤️</h2>
+<input type="password" id="senha" placeholder="Senha">
+<button onclick="verificar()">Entrar</button>
 </div>
 
 <div id="conteudo">
+<h1>Desde 05/09/2025 ❤️</h1>
+<div class="data">O dia que começamos nossa história</div>
+<div id="contador"></div>
 
-  <h1>Desde 20/08/2023 🤍</h1>
-  <div id="contador"></div>
-
-  <!-- PRIMEIRO BALÃO -->
-  <div class="balao" onclick="expandir(this)">
-    <p>
+<!-- PRIMEIRO BALÃO -->
+<div class="balao">
+<div class="conteudo-texto">
 Amor a gente já passou por tanta coisa, momentos bons, momentos difíceis, mas mesmo assim a gente continua aqui, tentando fazer dar certo. E isso significa muito pra mim. Você é uma pessoa tão bondosa, tão gentil, Eu vejo o quanto você faz por mim, o quanto se preocupa, o quanto tenta me agradar e me fazer feliz. Às vezes você nem percebe, mas suas atitudes mostram o tamanho do seu coração. Eu admiro muito isso em você. Eu sou muito apaixonada por você. Pelo seu jeito, pela sua força, pelo homem que você é. Eu admiro sua determinação, sua vontade de lutar, sua forma de não desistir fácil. Isso me dá ainda mais vontade de estar do seu lado. Eu sei que nem sempre é fácil pra gente, mas eu quero que você saiba que eu estou aqui. Pra tudo. Pra te apoiar, pra te ouvir, pra te ajudar, pra segurar sua mão quando precisar. Você não está sozinho. Eu quero construir um futuro com você. Quero crescer junto, conquistar nossas coisas juntos, realizar nossos sonhos juntos. Eu escolho você todos os dias. Eu te amo muito Cayo 🤍
-    </p>
-  </div>
+</div>
+<button class="btn-ler" onclick="toggleTexto(this)">Ler tudo ❤️</button>
+</div>
 
-  <!-- SEGUNDO BALÃO -->
-  <div class="balao" onclick="expandir(this)">
-    <p>
+<!-- SEGUNDO BALÃO -->
+<div class="balao">
+<div class="conteudo-texto">
 Oi meu amor, passei aqui pra te dizer que eu te amo muito, gosto muito de como você é comigo, cada abraço, cada carinho, cada momentos nossos juntos sempre vai ficar guardado em meu coração, amo muito sua pessoa, seu jeito de ser, essa menina espontânea, linda, doida, faz de tudo para tudo ficar bem, admiro sua força de vontade e a paciência que tem comigo, já tivemos dias bons e dias ruins como qualquer casal, mas o importante é que estávamos juntos em todos e sempre superando os problemas. Saiba que estarei aqui sempre que você precisa amor, pra qualquer coisa, pode contar comigo sempre, iremos resolver tudo juntos e crescer para termos um futuro lindo, e o mais importante que é sempre juntos e um apoiando o outro. Eu te amo muito Leticia 🤍
-    </p>
-  </div>
+</div>
+<button class="btn-ler" onclick="toggleTexto(this)">Ler tudo ❤️</button>
+</div>
 
-  <!-- BALÕES DE FOTO -->
-  <div class="balao foto-balao" onclick="adicionarFoto(this)">Clique para adicionar foto</div>
-  <div class="balao foto-balao" onclick="adicionarFoto(this)">Clique para adicionar foto</div>
-  <div class="balao foto-balao" onclick="adicionarFoto(this)">Clique para adicionar foto</div>
-  <div class="balao foto-balao" onclick="adicionarFoto(this)">Clique para adicionar foto</div>
+<div class="fotos">
+<div class="foto-balao"><input type="file" accept="image/*" onchange="carregarFoto(event,this)"><span>Adicionar</span></div>
+<div class="foto-balao"><input type="file" accept="image/*" onchange="carregarFoto(event,this)"><span>Adicionar</span></div>
+<div class="foto-balao"><input type="file" accept="image/*" onchange="carregarFoto(event,this)"><span>Adicionar</span></div>
+<div class="foto-balao"><input type="file" accept="image/*" onchange="carregarFoto(event,this)"><span>Adicionar</span></div>
+</div>
 
-  <!-- PLAYER -->
-  <div id="playerMusica"></div>
+<div class="player-box" id="playerBox">
+<h3>🎵 Nossa Música</h3>
+<img src="https://img.youtube.com/vi/iyJDuJggiEM/hqdefault.jpg">
+<p>iyJDuJggiEM</p>
+<iframe width="100%" height="200"
+src="https://www.youtube.com/embed/iyJDuJggiEM?autoplay=1"
+allow="autoplay"></iframe>
+</div>
 
 </div>
 
 <script>
+let petalas=[];
+let animando=false;
 
-function verificarSenha() {
-  if (document.getElementById("senhaInput").value === "cayofelipe20") {
-    document.getElementById("senhaTela").style.display = "none";
-    document.getElementById("conteudo").style.display = "block";
-    iniciarMusica();
-  }
+function verificar(){
+let senha=document.getElementById("senha").value;
+if(senha==="cayofelipe20"){
+document.getElementById("login").style.display="none";
+document.getElementById("conteudo").style.display="block";
+document.getElementById("playerBox").style.display="block";
+iniciarContador();
+iniciarAnimacao();
+}else{alert("Senha incorreta ❤️");}
 }
 
-function expandir(elemento) {
-  elemento.classList.toggle("ativo");
+function iniciarContador(){
+let dataInicio=new Date("September 05, 2025 20:00:00").getTime();
+setInterval(function(){
+let agora=new Date().getTime();
+let diff=agora-dataInicio;
+let dias=Math.floor(diff/(1000*60*60*24));
+let horas=Math.floor((diff/(1000*60*60))%24);
+let minutos=Math.floor((diff/(1000*60))%60);
+let segundos=Math.floor((diff/1000)%60);
+document.getElementById("contador").innerHTML=
+dias+" dias, "+horas+" horas, "+minutos+" minutos e "+segundos+" segundos juntos 🤍";
+},1000);
 }
 
-function adicionarFoto(elemento) {
-  const input = document.createElement("input");
-  input.type = "file";
-  input.accept = "image/*";
-  input.onchange = e => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      elemento.innerHTML = `<img src="${reader.result}">`;
-    };
-    reader.readAsDataURL(file);
-  };
-  input.click();
+function toggleTexto(botao){
+const balao=botao.parentElement;
+balao.classList.toggle("expandido");
+botao.innerText=balao.classList.contains("expandido")?"Fechar 🤍":"Ler tudo ❤️";
 }
 
-function iniciarMusica() {
-  document.getElementById("playerMusica").innerHTML = `
-    <iframe width="300" height="170"
-    src="https://www.youtube.com/embed/iyJDuJggiEM?autoplay=1"
-    allow="autoplay">
-    </iframe>
-  `;
+function carregarFoto(event,input){
+const file=event.target.files[0];
+if(!file)return;
+const reader=new FileReader();
+reader.onload=function(e){
+const container=input.parentElement;
+container.innerHTML="";
+const img=document.createElement("img");
+img.src=e.target.result;
+container.appendChild(img);
+}
+reader.readAsDataURL(file);
 }
 
-/* CONTADOR */
-function atualizarContador() {
-  const inicio = new Date("2023-08-20");
-  const hoje = new Date();
-  const diff = hoje - inicio;
+function criarPetala(){
+const el=document.createElement("div");
+el.innerHTML=Math.random()>0.5?"🌹":"🤍";
+el.style.position="fixed";
+el.style.left=Math.random()*window.innerWidth+"px";
+el.style.top="-30px";
+el.style.fontSize="20px";
+el.style.pointerEvents="none";
+document.body.appendChild(el);
 
-  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-  document.getElementById("contador").innerHTML = 
-  `Estamos juntos há ${dias} dias 🤍`;
+petalas.push({
+el:el,
+y:-30,
+vel:0.8+Math.random()*1.2,
+rot:Math.random()*360,
+rotVel:(Math.random()-0.5)*1.5
+});
 }
-atualizarContador();
 
-/* PETALAS + CORAÇÕES */
-function criarPetala() {
-  const petala = document.createElement("div");
-  petala.classList.add("petal");
-  petala.innerHTML = Math.random() > 0.5 ? "🌸" : "🤍";
-  petala.style.left = Math.random() * 100 + "vw";
-  petala.style.animationDuration = (6 + Math.random() * 4) + "s";
-  document.body.appendChild(petala);
-
-  setTimeout(() => {
-    petala.remove();
-  }, 10000);
+function iniciarAnimacao(){
+if(animando)return;
+animando=true;
+setInterval(criarPetala,700);
+function animar(){
+petalas.forEach((p,i)=>{
+p.y+=p.vel;
+p.rot+=p.rotVel;
+p.el.style.transform="translateY("+p.y+"px) rotate("+p.rot+"deg)";
+if(p.y>window.innerHeight){
+p.el.remove();
+petalas.splice(i,1);}
+});
+requestAnimationFrame(animar);}
+requestAnimationFrame(animar);
 }
-setInterval(criarPetala, 400);
-
 </script>
 
 </body>

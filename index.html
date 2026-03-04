@@ -3,69 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nosso Amor ❤️</title>
+<title>Cayo ❤️ Leticia</title>
 
 <style>
 body{
     margin:0;
     padding:0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    background: linear-gradient(135deg, #8B0000, #001f7a);
     display:flex;
     justify-content:center;
     align-items:center;
     height:100vh;
     overflow:hidden;
+    color:white;
+}
+
+/* Corações pulsando no fundo */
+.coracao{
+    position:absolute;
+    font-size:20px;
+    animation: pulsar 2s infinite;
+    opacity:0.2;
+}
+
+@keyframes pulsar{
+    0%{ transform: scale(1); }
+    50%{ transform: scale(1.4); }
+    100%{ transform: scale(1); }
 }
 
 .container{
     text-align:center;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 0 25px rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(15px);
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 0 40px rgba(0,0,0,0.6);
     width:90%;
-    max-width:400px;
-    color:white;
+    max-width:500px;
+    position:relative;
+    z-index:2;
 }
 
 h1{
+    font-size:32px;
     margin-bottom:10px;
-    font-size:24px;
+    animation: brilho 3s infinite alternate;
+}
+
+@keyframes brilho{
+    from{ text-shadow:0 0 10px #ff4d6d; }
+    to{ text-shadow:0 0 25px #ffffff; }
+}
+
+.data{
+    font-size:18px;
+    margin-bottom:20px;
+    font-weight:bold;
 }
 
 .box{
-    background: rgba(255,255,255,0.2);
-    padding:10px;
-    border-radius:12px;
-    margin:10px 0;
-    font-size:14px;
+    background: rgba(255,255,255,0.15);
+    padding:12px;
+    border-radius:20px;
+    margin:10px auto;
+    font-size:16px;
+    width:85%;
 }
 
 input{
-    padding:10px;
+    padding:12px;
     border:none;
-    border-radius:10px;
+    border-radius:12px;
     width:80%;
-    margin-top:10px;
+    margin-top:15px;
     text-align:center;
+    font-size:16px;
 }
 
 button{
-    margin-top:10px;
-    padding:8px 20px;
+    margin-top:15px;
+    padding:10px 25px;
     border:none;
-    border-radius:20px;
+    border-radius:25px;
     background:white;
-    color:#ff4d6d;
+    color:#8B0000;
     font-weight:bold;
+    font-size:16px;
     cursor:pointer;
     transition:0.3s;
 }
 
 button:hover{
-    background:#ffe3ec;
+    background:#ffd6d6;
 }
 
 #conteudo{
@@ -75,12 +106,30 @@ button:hover{
 #contador{
     font-size:18px;
     font-weight:bold;
-    margin-top:10px;
+    margin-top:15px;
+}
+
+/* Pétalas */
+.petala{
+    position:absolute;
+    top:-50px;
+    font-size:22px;
+    animation: cair linear infinite;
+    opacity:0.8;
+}
+
+@keyframes cair{
+    0%{ transform: translateY(0) rotate(0deg); }
+    100%{ transform: translateY(110vh) rotate(360deg); }
 }
 </style>
 </head>
 
 <body>
+
+<audio autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
 <div class="container">
 
@@ -92,7 +141,8 @@ button:hover{
 </div>
 
 <div id="conteudo">
-    <h1>Desde 20/06/2024 ❤️</h1>
+    <h1>Cayo ❤️ Leticia</h1>
+    <div class="data">Desde 20/06/2024</div>
 
     <div class="box">
         Cada segundo ao seu lado é o melhor presente da minha vida.
@@ -138,6 +188,29 @@ function iniciarContador(){
         segundos + " segundos juntos ❤️";
     },1000);
 }
+
+/* Pétalas */
+function criarPetala(){
+    var petala = document.createElement("div");
+    petala.classList.add("petala");
+    petala.innerHTML = "🌹";
+    petala.style.left = Math.random() * 100 + "vw";
+    petala.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    document.body.appendChild(petala);
+    setTimeout(() => { petala.remove(); },10000);
+}
+setInterval(criarPetala, 500);
+
+/* Corações no fundo */
+function criarCoracao(){
+    var coracao = document.createElement("div");
+    coracao.classList.add("coracao");
+    coracao.innerHTML = "❤️";
+    coracao.style.left = Math.random() * 100 + "vw";
+    coracao.style.top = Math.random() * 100 + "vh";
+    document.body.appendChild(coracao);
+}
+for(let i=0;i<20;i++){ criarCoracao(); }
 </script>
 
 </body>

@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nosso Amor ❤️</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -18,6 +19,19 @@ background:linear-gradient(135deg,#8B0000,#1e3c72);
 color:white;
 overflow-x:hidden;
 text-align:center;
+}
+
+/* RESPONSIVIDADE AUTOMÁTICA */
+@media (min-width: 1024px){
+  body{
+    display:flex;
+    justify-content:center;
+  }
+
+  #conteudo{
+    max-width:900px;
+    width:100%;
+  }
 }
 
 /* LOGIN */
@@ -181,7 +195,6 @@ margin-left:5px;
 <div class="data">O dia que começamos nossa história</div>
 <div id="contador"></div>
 
-<!-- TEXTO 1 -->
 <div class="balao">
 <div class="conteudo-texto">
 COLE AQUI SEU TEXTO COMPLETO 1 EXATAMENTE COMO VOCÊ ESCREVEU.
@@ -189,7 +202,6 @@ COLE AQUI SEU TEXTO COMPLETO 1 EXATAMENTE COMO VOCÊ ESCREVEU.
 <button class="btn-ler" onclick="toggleTexto(this)">Ler tudo ❤️</button>
 </div>
 
-<!-- TEXTO 2 -->
 <div class="balao">
 <div class="conteudo-texto">
 COLE AQUI SEU TEXTO COMPLETO 2 EXATAMENTE COMO VOCÊ ESCREVEU.
@@ -197,7 +209,6 @@ COLE AQUI SEU TEXTO COMPLETO 2 EXATAMENTE COMO VOCÊ ESCREVEU.
 <button class="btn-ler" onclick="toggleTexto(this)">Ler tudo ❤️</button>
 </div>
 
-<!-- FOTOS -->
 <div class="fotos">
 <div class="foto-balao">
 <input type="file" accept="image/*" onchange="carregarFoto(event,this)">
@@ -217,7 +228,6 @@ COLE AQUI SEU TEXTO COMPLETO 2 EXATAMENTE COMO VOCÊ ESCREVEU.
 </div>
 </div>
 
-<!-- MÚSICA -->
 <div class="musica">
 <h3>Escolha a nossa música 🎵</h3>
 <input type="text" id="linkMusica" placeholder="Cole o link .mp3 aqui">
@@ -232,7 +242,6 @@ COLE AQUI SEU TEXTO COMPLETO 2 EXATAMENTE COMO VOCÊ ESCREVEU.
 let petalas=[];
 let animando=false;
 
-/* LOGIN */
 function verificar(){
 let senha=document.getElementById("senha").value;
 if(senha==="cayofelipe20"){
@@ -246,7 +255,6 @@ alert("Senha incorreta ❤️");
 }
 }
 
-/* CONTADOR */
 function iniciarContador(){
 let dataInicio=new Date("September 05, 2025 20:00:00").getTime();
 setInterval(function(){
@@ -263,14 +271,12 @@ dias+" dias, "+horas+" horas, "+minutos+" minutos e "+segundos+" segundos juntos
 },1000);
 }
 
-/* LER TUDO */
 function toggleTexto(botao){
 const balao=botao.parentElement;
 balao.classList.toggle("expandido");
 botao.innerText=balao.classList.contains("expandido")?"Fechar 🤍":"Ler tudo ❤️";
 }
 
-/* FOTO */
 function carregarFoto(event,input){
 const file=event.target.files[0];
 if(!file)return;
@@ -285,7 +291,6 @@ container.appendChild(img);
 reader.readAsDataURL(file);
 }
 
-/* MÚSICA */
 function carregarLink(){
 let link=document.getElementById("linkMusica").value;
 document.getElementById("player").src=link;
@@ -308,7 +313,6 @@ clearInterval(fade);
 }
 }
 
-/* PÉTALAS FLUÍDAS */
 function criarPetala(){
 const el=document.createElement("div");
 el.innerHTML="🌹";

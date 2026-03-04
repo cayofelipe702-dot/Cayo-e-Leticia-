@@ -9,208 +9,244 @@
 body{
     margin:0;
     padding:0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #8B0000, #001f7a);
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#8B0000,#001f7a);
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
-    overflow:hidden;
+    min-height:100vh;
+    overflow-x:hidden;
     color:white;
-}
-
-/* Corações pulsando no fundo */
-.coracao{
-    position:absolute;
-    font-size:20px;
-    animation: pulsar 2s infinite;
-    opacity:0.2;
-}
-
-@keyframes pulsar{
-    0%{ transform: scale(1); }
-    50%{ transform: scale(1.4); }
-    100%{ transform: scale(1); }
 }
 
 .container{
     text-align:center;
-    background: rgba(0,0,0,0.35);
-    backdrop-filter: blur(15px);
+    background:rgba(0,0,0,0.35);
+    backdrop-filter:blur(15px);
     padding:40px;
     border-radius:25px;
     box-shadow:0 0 40px rgba(0,0,0,0.6);
-    width:90%;
-    max-width:500px;
+    width:95%;
+    max-width:800px;
     position:relative;
     z-index:2;
 }
 
 h1{
     font-size:32px;
-    margin-bottom:10px;
-    animation: brilho 3s infinite alternate;
+    animation:brilho 3s infinite alternate;
 }
-
 @keyframes brilho{
-    from{ text-shadow:0 0 10px #ff4d6d; }
-    to{ text-shadow:0 0 25px #ffffff; }
+    from{text-shadow:0 0 10px #ff4d6d;}
+    to{text-shadow:0 0 25px #ffffff;}
 }
 
 .data{
-    font-size:18px;
-    margin-bottom:20px;
     font-weight:bold;
+    margin-bottom:20px;
 }
 
 .box{
-    background: rgba(255,255,255,0.15);
-    padding:12px;
-    border-radius:20px;
+    background:rgba(255,255,255,0.12);
+    padding:15px;
+    border-radius:18px;
     margin:10px auto;
     font-size:16px;
-    width:85%;
+    width:95%;
+    text-align:left;
 }
 
-input{
-    padding:12px;
-    border:none;
-    border-radius:12px;
-    width:80%;
-    margin-top:15px;
-    text-align:center;
-    font-size:16px;
+/* Balões de fotos */
+.fotos{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:20px;
 }
 
-button{
-    margin-top:15px;
-    padding:10px 25px;
-    border:none;
-    border-radius:25px;
-    background:white;
-    color:#8B0000;
-    font-weight:bold;
-    font-size:16px;
+.foto-box{
+    background:rgba(255,255,255,0.15);
+    border-radius:15px;
+    height:150px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     cursor:pointer;
-    transition:0.3s;
+    overflow:hidden;
+    position:relative;
 }
 
-button:hover{
-    background:#ffd6d6;
+.foto-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-#conteudo{
+.foto-box span{
+    position:absolute;
+    font-size:14px;
+}
+
+input[type="file"]{
     display:none;
 }
 
-#contador{
-    font-size:18px;
-    font-weight:bold;
-    margin-top:15px;
+.music-box{
+    margin-top:20px;
+    background:rgba(255,255,255,0.12);
+    padding:15px;
+    border-radius:15px;
 }
 
-/* Pétalas */
+#conteudo{display:none;}
+
 .petala{
     position:absolute;
     top:-50px;
     font-size:22px;
-    animation: cair linear infinite;
+    animation:cair linear infinite;
     opacity:0.8;
 }
-
 @keyframes cair{
-    0%{ transform: translateY(0) rotate(0deg); }
-    100%{ transform: translateY(110vh) rotate(360deg); }
+    0%{transform:translateY(0) rotate(0deg);}
+    100%{transform:translateY(110vh) rotate(360deg);}
 }
 </style>
 </head>
 
 <body>
 
-<audio autoplay loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-
 <div class="container">
 
 <div id="login">
-    <h1>Digite nossa senha ❤️</h1>
-    <input type="password" id="senha" placeholder="Digite aqui">
-    <br>
-    <button onclick="verificar()">Entrar</button>
+<h1>Digite nossa senha ❤️</h1>
+<input type="password" id="senha" placeholder="Digite aqui">
+<br><br>
+<button onclick="verificar()">Entrar</button>
 </div>
 
 <div id="conteudo">
-    <h1>Cayo ❤️ Leticia</h1>
-    <div class="data">Desde 20/06/2024</div>
+<h1>Cayo ❤️ Leticia</h1>
+<div class="data">Desde 05 de setembro de 2025 às 20hrs da noite</div>
 
-    <div class="box">
-        Cada segundo ao seu lado é o melhor presente da minha vida.
-    </div>
+<!-- TEXTOS (mantidos exatamente iguais) -->
 
-    <div class="box">
-        Nosso amor só cresce a cada dia que passa.
-    </div>
+<div class="box">Amor a gente já passou por tanta coisa, momentos bons, momentos difíceis, mas mesmo assim a gente continua aqui, tentando fazer dar certo. E isso significa muito pra mim.</div>
 
-    <div id="contador"></div>
+<div class="box">Você é uma pessoa tão bondosa, tão gentil, Eu vejo o quanto você faz por mim, o quanto se preocupa, o quanto tenta me agradar e me fazer feliz.</div>
+
+<div class="box">Às vezes você nem percebe, mas suas atitudes mostram o tamanho do seu coração. Eu admiro muito isso em você.</div>
+
+<div class="box">Eu sou muito apaixonada por você. Pelo seu jeito, pela sua força, pelo homem que você é.</div>
+
+<div class="box">Eu admiro sua determinação, sua vontade de lutar, sua forma de não desistir fácil. Isso me dá ainda mais vontade de estar do seu lado.</div>
+
+<div class="box">Eu sei que nem sempre é fácil pra gente, mas eu quero que você saiba que eu estou aqui. Pra tudo. Pra te apoiar, pra te ouvir, pra te ajudar, pra segurar sua mão quando precisar. Você não está sozinho.</div>
+
+<div class="box">Eu quero construir um futuro com você. Quero crescer junto, conquistar nossas coisas juntos, realizar nossos sonhos juntos.</div>
+
+<div class="box">Eu escolho você todos os dias. Eu te amo muito Cayo 🤍</div>
+
+<div class="box">Oi meu amor, passei aqui pra te dizer que eu te amo muito, gosto muito de como você é comigo, cada abraço, cada carinho, cada momentos nossos juntos sempre vai ficar guardado em meu coração.</div>
+
+<div class="box">amo muito sua pessoa, seu jeito de ser, essa menina espontânea, linda, doida, faz de tudo para tudo ficar bem, admiro sua força de vontade e a paciência que tem comigo.</div>
+
+<div class="box">já tivemos dias bons e dias ruins como qualquer casal, mas o importante é que estávamos juntos em todos e sempre superando os problemas.</div>
+
+<div class="box">Saiba que estarei aqui sempre que você precisa amor, pra qualquer coisa, pode contar comigo sempre, iremos resolver tudo juntos e crescer para termos um futuro lindo, e o mais importante que é sempre juntos e um apoiando o outro.</div>
+
+<div class="box">Eu te amo muito Leticia 🤍</div>
+
+<!-- BALÕES DE FOTO -->
+
+<div class="fotos">
+<div class="foto-box" onclick="document.getElementById('foto1').click()">
+<span>Adicionar Foto</span>
+<input type="file" id="foto1" accept="image/*" onchange="carregarFoto(event,this)">
 </div>
 
+<div class="foto-box" onclick="document.getElementById('foto2').click()">
+<span>Adicionar Foto</span>
+<input type="file" id="foto2" accept="image/*" onchange="carregarFoto(event,this)">
+</div>
+
+<div class="foto-box" onclick="document.getElementById('foto3').click()">
+<span>Adicionar Foto</span>
+<input type="file" id="foto3" accept="image/*" onchange="carregarFoto(event,this)">
+</div>
+
+<div class="foto-box" onclick="document.getElementById('foto4').click()">
+<span>Adicionar Foto</span>
+<input type="file" id="foto4" accept="image/*" onchange="carregarFoto(event,this)">
+</div>
+</div>
+
+<!-- MÚSICA -->
+
+<div class="music-box">
+<label>Adicionar nossa música 🎵</label><br><br>
+<input type="file" id="musica" accept="audio/*" onchange="carregarMusica(event)">
+<audio id="player" controls style="width:100%; margin-top:10px;"></audio>
+</div>
+
+<div id="contador"></div>
+
+</div>
 </div>
 
 <script>
 function verificar(){
-    var senha = document.getElementById("senha").value;
-    if(senha === "cayofelipe20"){
-        document.getElementById("login").style.display="none";
-        document.getElementById("conteudo").style.display="block";
-        iniciarContador();
-    }else{
-        alert("Senha incorreta ❤️");
-    }
+var senha=document.getElementById("senha").value;
+if(senha==="cayofelipe20"){
+document.getElementById("login").style.display="none";
+document.getElementById("conteudo").style.display="block";
+iniciarContador();
+}else{
+alert("Senha incorreta ❤️");
+}
 }
 
 function iniciarContador(){
-    var dataInicio = new Date("June 20, 2024 00:00:00").getTime();
-
-    setInterval(function(){
-        var agora = new Date().getTime();
-        var diferenca = agora - dataInicio;
-
-        var dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-        var horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
-        var minutos = Math.floor((diferenca / (1000 * 60)) % 60);
-        var segundos = Math.floor((diferenca / 1000) % 60);
-
-        document.getElementById("contador").innerHTML =
-        dias + " dias, " +
-        horas + " horas, " +
-        minutos + " minutos e " +
-        segundos + " segundos juntos ❤️";
-    },1000);
+var dataInicio=new Date("September 05, 2025 20:00:00").getTime();
+setInterval(function(){
+var agora=new Date().getTime();
+var diferenca=agora-dataInicio;
+var dias=Math.floor(diferenca/(1000*60*60*24));
+var horas=Math.floor((diferenca/(1000*60*60))%24);
+var minutos=Math.floor((diferenca/(1000*60))%60);
+var segundos=Math.floor((diferenca/1000)%60);
+document.getElementById("contador").innerHTML=
+dias+" dias, "+horas+" horas, "+minutos+" minutos e "+segundos+" segundos juntos 🤍";
+},1000);
 }
 
-/* Pétalas */
+function carregarFoto(event,input){
+var reader=new FileReader();
+reader.onload=function(){
+var img=document.createElement("img");
+img.src=reader.result;
+input.parentElement.innerHTML="";
+input.parentElement.appendChild(img);
+}
+reader.readAsDataURL(event.target.files[0]);
+}
+
+function carregarMusica(event){
+var player=document.getElementById("player");
+player.src=URL.createObjectURL(event.target.files[0]);
+player.play();
+}
+
 function criarPetala(){
-    var petala = document.createElement("div");
-    petala.classList.add("petala");
-    petala.innerHTML = "🌹";
-    petala.style.left = Math.random() * 100 + "vw";
-    petala.style.animationDuration = (Math.random() * 5 + 5) + "s";
-    document.body.appendChild(petala);
-    setTimeout(() => { petala.remove(); },10000);
+var petala=document.createElement("div");
+petala.classList.add("petala");
+petala.innerHTML="🌹";
+petala.style.left=Math.random()*100+"vw";
+petala.style.animationDuration=(Math.random()*5+5)+"s";
+document.body.appendChild(petala);
+setTimeout(()=>{petala.remove();},10000);
 }
-setInterval(criarPetala, 500);
-
-/* Corações no fundo */
-function criarCoracao(){
-    var coracao = document.createElement("div");
-    coracao.classList.add("coracao");
-    coracao.innerHTML = "❤️";
-    coracao.style.left = Math.random() * 100 + "vw";
-    coracao.style.top = Math.random() * 100 + "vh";
-    document.body.appendChild(coracao);
-}
-for(let i=0;i<20;i++){ criarCoracao(); }
+setInterval(criarPetala,500);
 </script>
 
 </body>

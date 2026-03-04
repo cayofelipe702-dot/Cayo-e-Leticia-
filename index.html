@@ -2,189 +2,230 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cayo ❤️ Leticia</title>
+<title>Nosso Amor ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-    margin:0;
-    font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#8B0000,#001f7a);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    overflow-x:hidden;
-    color:white;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#8B0000,#1e3c72);
+color:white;
+overflow-x:hidden;
+text-align:center;
 }
 
-/* Transição suave */
-.fade-in{
-    opacity:0;
-    transform:translateY(20px);
-    animation:fadeUp 1s ease forwards;
-}
-@keyframes fadeUp{
-    to{opacity:1; transform:translateY(0);}
-}
-
-/* Container estilo cinema */
-.container{
-    text-align:center;
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(25px);
-    padding:40px;
-    border-radius:30px;
-    box-shadow:0 0 60px rgba(0,0,0,0.5);
-    width:95%;
-    max-width:900px;
+/* LOGIN */
+#login{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 
-/* Nome brilhando cinematográfico */
+#login input{
+padding:12px;
+border-radius:20px;
+border:none;
+outline:none;
+width:220px;
+text-align:center;
+}
+
+#login button{
+margin-top:10px;
+padding:10px 20px;
+border:none;
+border-radius:20px;
+background:linear-gradient(45deg,#ff4b2b,#ff416c);
+color:white;
+cursor:pointer;
+}
+
+/* CONTEÚDO */
+#conteudo{
+display:none;
+padding:30px 15px;
+animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+
 h1{
-    font-size:34px;
-    background:linear-gradient(90deg,#fff,#ffd6e7,#fff);
-    background-size:200% auto;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation:shine 4s linear infinite;
-}
-@keyframes shine{
-    to{background-position:200% center;}
+margin-bottom:5px;
 }
 
 .data{
-    font-weight:bold;
-    margin-bottom:5px;
+margin-bottom:10px;
+font-weight:300;
 }
 
 #contador{
-    font-size:18px;
-    margin-bottom:25px;
+margin-bottom:30px;
+font-size:15px;
 }
 
-/* Balões */
-.box{
-    background:rgba(255,255,255,0.12);
-    padding:20px;
-    border-radius:25px;
-    margin:20px auto;
-    font-size:15px;
-    width:95%;
-    text-align:left;
-    line-height:1.6;
-    transition:transform .4s ease;
-}
-.box:hover{
-    transform:scale(1.02);
+/* BALÕES TEXTO */
+.balao{
+max-width:650px;
+margin:20px auto;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* Fotos */
+.conteudo-texto{
+max-height:110px;
+overflow:hidden;
+transition:max-height 0.8s cubic-bezier(0.65,0,0.35,1);
+line-height:1.6;
+font-size:15px;
+}
+
+.balao.expandido .conteudo-texto{
+max-height:2000px;
+}
+
+.btn-ler{
+margin-top:15px;
+background:linear-gradient(45deg,#ff4b2b,#ff416c);
+border:none;
+padding:8px 18px;
+border-radius:20px;
+color:white;
+cursor:pointer;
+}
+
+/* FOTOS */
 .fotos{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-    margin-top:25px;
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+margin-top:30px;
 }
 
-.foto-box{
-    background:rgba(255,255,255,0.15);
-    border-radius:20px;
-    height:170px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    cursor:pointer;
-    overflow:hidden;
-    position:relative;
-    transition:.4s;
-}
-.foto-box:hover{
-    transform:scale(1.05);
+.foto-balao{
+width:160px;
+height:160px;
+border-radius:20px;
+background:rgba(255,255,255,0.08);
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+overflow:hidden;
+cursor:pointer;
 }
 
-.foto-box img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+.foto-balao input{
+position:absolute;
+width:100%;
+height:100%;
+opacity:0;
+cursor:pointer;
 }
 
-.foto-box span{
-    position:absolute;
-    font-size:14px;
+.foto-balao img{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
-/* Música */
-.music-box{
-    margin-top:30px;
-    background:rgba(255,255,255,0.12);
-    padding:20px;
-    border-radius:20px;
+/* MÚSICA */
+.musica{
+margin-top:30px;
 }
 
-.music-box input{
-    width:100%;
-    padding:10px;
-    border-radius:12px;
-    border:none;
-    margin-top:10px;
+.musica input{
+padding:8px;
+border-radius:15px;
+border:none;
+width:220px;
+text-align:center;
 }
 
-button{
-    margin-top:12px;
-    padding:10px 25px;
-    border:none;
-    border-radius:25px;
-    background:white;
-    color:#8B0000;
-    font-weight:bold;
-    cursor:pointer;
+.musica button{
+padding:8px 15px;
+border:none;
+border-radius:15px;
+background:#ff416c;
+color:white;
+cursor:pointer;
+margin-left:5px;
 }
-
-#conteudo{display:none;}
-input[type="file"]{display:none;}
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
 <div id="login">
-<h1>Digite nossa senha ❤️</h1>
-<input type="password" id="senha">
-<br><br>
+<h2>Digite nossa senha ❤️</h2>
+<input type="password" id="senha" placeholder="Senha">
 <button onclick="verificar()">Entrar</button>
 </div>
 
-<div id="conteudo" class="fade-in">
-<h1>Cayo ❤️ Leticia</h1>
-<div class="data">Desde 05 de setembro de 2025 às 20hrs da noite</div>
+<div id="conteudo">
+<h1>Desde 05/09/2025 ❤️</h1>
+<div class="data">O dia que começamos nossa história</div>
 <div id="contador"></div>
 
-<div class="box">
-Amor a gente já passou por tanta coisa... Eu te amo muito Cayo 🤍
+<!-- TEXTO 1 -->
+<div class="balao">
+<div class="conteudo-texto">
+COLE AQUI SEU TEXTO COMPLETO 1 EXATAMENTE COMO VOCÊ ESCREVEU.
+</div>
+<button class="btn-ler" onclick="toggleTexto(this)">Ler tudo ❤️</button>
 </div>
 
-<div class="box">
-Oi meu amor, passei aqui pra te dizer que eu te amo muito... Eu te amo muito Leticia 🤍
+<!-- TEXTO 2 -->
+<div class="balao">
+<div class="conteudo-texto">
+COLE AQUI SEU TEXTO COMPLETO 2 EXATAMENTE COMO VOCÊ ESCREVEU.
+</div>
+<button class="btn-ler" onclick="toggleTexto(this)">Ler tudo ❤️</button>
 </div>
 
+<!-- FOTOS -->
 <div class="fotos">
-<div class="foto-box" onclick="document.getElementById('f1').click()"><span>Adicionar Foto</span><input type="file" id="f1" accept="image/*" onchange="carregarFoto(event,this)"></div>
-<div class="foto-box" onclick="document.getElementById('f2').click()"><span>Adicionar Foto</span><input type="file" id="f2" accept="image/*" onchange="carregarFoto(event,this)"></div>
-<div class="foto-box" onclick="document.getElementById('f3').click()"><span>Adicionar Foto</span><input type="file" id="f3" accept="image/*" onchange="carregarFoto(event,this)"></div>
-<div class="foto-box" onclick="document.getElementById('f4').click()"><span>Adicionar Foto</span><input type="file" id="f4" accept="image/*" onchange="carregarFoto(event,this)"></div>
+<div class="foto-balao">
+<input type="file" accept="image/*" onchange="carregarFoto(event,this)">
+<span>Adicionar</span>
+</div>
+<div class="foto-balao">
+<input type="file" accept="image/*" onchange="carregarFoto(event,this)">
+<span>Adicionar</span>
+</div>
+<div class="foto-balao">
+<input type="file" accept="image/*" onchange="carregarFoto(event,this)">
+<span>Adicionar</span>
+</div>
+<div class="foto-balao">
+<input type="file" accept="image/*" onchange="carregarFoto(event,this)">
+<span>Adicionar</span>
+</div>
 </div>
 
-<div class="music-box">
-<label>Escolha a nossa música 🎵</label>
-<input type="text" id="linkMusica" placeholder="Cole aqui o link direto (mp3)">
-<button onclick="carregarLink()">Carregar Música</button>
-<audio id="player" controls style="width:100%; margin-top:15px;"></audio>
+<!-- MÚSICA -->
+<div class="musica">
+<h3>Escolha a nossa música 🎵</h3>
+<input type="text" id="linkMusica" placeholder="Cole o link .mp3 aqui">
+<button onclick="carregarLink()">Adicionar</button>
+<br><br>
+<audio id="player"></audio>
 </div>
 
-</div>
 </div>
 
 <script>
@@ -193,88 +234,111 @@ let animando=false;
 
 /* LOGIN */
 function verificar(){
-if(document.getElementById("senha").value==="cayofelipe20"){
+let senha=document.getElementById("senha").value;
+if(senha==="cayofelipe20"){
 document.getElementById("login").style.display="none";
 document.getElementById("conteudo").style.display="block";
 iniciarContador();
 iniciarAnimacao();
-}else{alert("Senha incorreta ❤️");}
+tocarMusicaAutomatica();
+}else{
+alert("Senha incorreta ❤️");
+}
 }
 
 /* CONTADOR */
 function iniciarContador(){
-var dataInicio=new Date("September 05, 2025 20:00:00").getTime();
+let dataInicio=new Date("September 05, 2025 20:00:00").getTime();
 setInterval(function(){
-var agora=new Date().getTime();
-var d=agora-dataInicio;
-var dias=Math.floor(d/(1000*60*60*24));
-var horas=Math.floor((d/(1000*60*60))%24);
-var minutos=Math.floor((d/(1000*60))%60);
-var segundos=Math.floor((d/1000)%60);
+let agora=new Date().getTime();
+let diff=agora-dataInicio;
+
+let dias=Math.floor(diff/(1000*60*60*24));
+let horas=Math.floor((diff/(1000*60*60))%24);
+let minutos=Math.floor((diff/(1000*60))%60);
+let segundos=Math.floor((diff/1000)%60);
+
 document.getElementById("contador").innerHTML=
 dias+" dias, "+horas+" horas, "+minutos+" minutos e "+segundos+" segundos juntos 🤍";
 },1000);
 }
 
+/* LER TUDO */
+function toggleTexto(botao){
+const balao=botao.parentElement;
+balao.classList.toggle("expandido");
+botao.innerText=balao.classList.contains("expandido")?"Fechar 🤍":"Ler tudo ❤️";
+}
+
+/* FOTO */
+function carregarFoto(event,input){
+const file=event.target.files[0];
+if(!file)return;
+const reader=new FileReader();
+reader.onload=function(e){
+const container=input.parentElement;
+container.innerHTML="";
+const img=document.createElement("img");
+img.src=e.target.result;
+container.appendChild(img);
+}
+reader.readAsDataURL(file);
+}
+
 /* MÚSICA */
 function carregarLink(){
-var link=document.getElementById("linkMusica").value;
-var player=document.getElementById("player");
-player.src=link;
+let link=document.getElementById("linkMusica").value;
+document.getElementById("player").src=link;
+}
+
+function tocarMusicaAutomatica(){
+let player=document.getElementById("player");
+if(player.src){
 player.volume=0;
 player.play().catch(()=>{});
-let v=0;
+let vol=0;
 let fade=setInterval(()=>{
-if(v<1){v+=0.05;player.volume=v;}
-else{clearInterval(fade);}
+if(vol<1){
+vol+=0.05;
+player.volume=vol;
+}else{
+clearInterval(fade);
+}
 },200);
 }
-
-/* FOTOS */
-function carregarFoto(event,input){
-var reader=new FileReader();
-reader.onload=function(){
-var img=document.createElement("img");
-img.src=reader.result;
-input.parentElement.innerHTML="";
-input.parentElement.appendChild(img);
-}
-reader.readAsDataURL(event.target.files[0]);
 }
 
-/* PÉTALAS ULTRA FLUÍDAS */
+/* PÉTALAS FLUÍDAS */
 function criarPetala(){
 const el=document.createElement("div");
 el.innerHTML="🌹";
 el.style.position="fixed";
 el.style.left=Math.random()*window.innerWidth+"px";
 el.style.top="-30px";
-el.style.fontSize="22px";
+el.style.fontSize="20px";
+el.style.pointerEvents="none";
 document.body.appendChild(el);
 
 petalas.push({
 el:el,
 x:parseFloat(el.style.left),
 y:-30,
-vel:1+Math.random()*1.5,
+vel:1+Math.random()*2,
 rot:Math.random()*360,
-rotVel:(Math.random()-0.5)*2,
-osc:Math.random()*100
+rotVel:(Math.random()-0.5)*2
 });
 }
 
 function iniciarAnimacao(){
 if(animando)return;
 animando=true;
-setInterval(criarPetala,800);
+setInterval(criarPetala,600);
 
 function animar(){
 petalas.forEach((p,i)=>{
 p.y+=p.vel;
-p.x+=Math.sin(p.y/50)*0.5;
 p.rot+=p.rotVel;
-p.el.style.transform=
-`translate(${p.x}px,${p.y}px) rotate(${p.rot}deg)`;
+p.el.style.transform="translateY("+p.y+"px) rotate("+p.rot+"deg)";
 if(p.y>window.innerHeight){
 p.el.remove();
 petalas.splice(i,1);

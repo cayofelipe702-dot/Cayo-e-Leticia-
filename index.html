@@ -172,7 +172,7 @@ to{transform:translateY(110vh) rotate(360deg);}
 <body>
 
 <div id="login">
-<h2>Digite nossa senha ❤️</h2>
+<h2>Digite nossa data 🥰</h2>
 <input type="password" id="senha" placeholder="Senha">
 <button onclick="verificar()">Entrar</button>
 </div>
@@ -187,7 +187,7 @@ to{transform:translateY(110vh) rotate(360deg);}
 <div class="conteudo-texto">
 Amor a gente já passou por tanta coisa, momentos bons, momentos difíceis, mas mesmo assim a gente continua aqui, tentando fazer dar certo. E isso significa muito pra mim. Você é uma pessoa tão bondosa, tão gentil, Eu vejo o quanto você faz por mim, o quanto se preocupa, o quanto tenta me agradar e me fazer feliz. Às vezes você nem percebe, mas suas atitudes mostram o tamanho do seu coração. Eu admiro muito isso em você. Eu sou muito apaixonada por você. Pelo seu jeito, pela sua força, pelo homem que você é. Eu admiro sua determinação, sua vontade de lutar, sua forma de não desistir fácil. Isso me dá ainda mais vontade de estar do seu lado. Eu sei que nem sempre é fácil pra gente, mas eu quero que você saiba que eu estou aqui. Pra tudo. Pra te apoiar, pra te ouvir, pra te ajudar, pra segurar sua mão quando precisar. Você não está sozinho. Eu quero construir um futuro com você. Quero crescer junto, conquistar nossas coisas juntos, realizar nossos sonhos juntos. Eu escolho você todos os dias. Eu te amo muito Cayo 🤍
 </div>
-<button class="btn-ler" onclick="toggleTexto(this)">Ler tudo ❤️</button>
+<button class="btn-ler" onclick="toggleTexto(this)">Ler tudo 🤍</button>
 </div>
 
 <!-- SEGUNDO BALÃO -->
@@ -195,7 +195,7 @@ Amor a gente já passou por tanta coisa, momentos bons, momentos difíceis, mas 
 <div class="conteudo-texto">
 Oi meu amor, passei aqui pra te dizer que eu te amo muito, gosto muito de como você é comigo, cada abraço, cada carinho, cada momentos nossos juntos sempre vai ficar guardado em meu coração, amo muito sua pessoa, seu jeito de ser, essa menina espontânea, linda, doida, faz de tudo para tudo ficar bem, admiro sua força de vontade e a paciência que tem comigo, já tivemos dias bons e dias ruins como qualquer casal, mas o importante é que estávamos juntos em todos e sempre superando os problemas. Saiba que estarei aqui sempre que você precisa amor, pra qualquer coisa, pode contar comigo sempre, iremos resolver tudo juntos e crescer para termos um futuro lindo, e o mais importante que é sempre juntos e um apoiando o outro. Eu te amo muito Leticia 🤍
 </div>
-<button class="btn-ler" onclick="toggleTexto(this)">Ler tudo ❤️</button>
+<button class="btn-ler" onclick="toggleTexto(this)">Ler tudo 🤍</button>
 </div>
 
 <div class="fotos">
@@ -207,11 +207,14 @@ Oi meu amor, passei aqui pra te dizer que eu te amo muito, gosto muito de como v
 
 <div class="player-box" id="playerBox">
 <h3>🎵 Nossa Música</h3>
-<img src="https://img.youtube.com/vi/iyJDuJggiEM/hqdefault.jpg">
-<p>iyJDuJggiEM</p>
-<iframe width="100%" height="200"
-src="https://www.youtube.com/embed/iyJDuJggiEM?autoplay=1"
-allow="autoplay"></iframe>
+<a href="https://www.youtube.com/watch?v=iyJDuJggiEM" target="_blank">
+<img src="https://img.youtube.com/vi/iyJDuJggiEM/hqdefault.jpg" alt="Nossa Música">
+</a>
+<iframe id="ytPlayer" width="100%" height="200"
+src="https://www.youtube.com/embed/iyJDuJggiEM?autoplay=1&controls=1&showinfo=0&modestbranding=1"
+allow="autoplay; encrypted-media"
+allowfullscreen>
+</iframe>
 </div>
 
 </div>
@@ -222,27 +225,15 @@ let animando=false;
 
 function verificar(){
 let senha=document.getElementById("senha").value;
-if(senha==="cayofelipe20"){
+if(senha==="05/07/2025"){
 document.getElementById("login").style.display="none";
 document.getElementById("conteudo").style.display="block";
 document.getElementById("playerBox").style.display="block";
 iniciarContador();
 iniciarAnimacao();
-}else{alert("Senha incorreta ❤️");}
-}
-
-function iniciarContador(){
-let dataInicio=new Date("September 05, 2025 20:00:00").getTime();
-setInterval(function(){
-let agora=new Date().getTime();
-let diff=agora-dataInicio;
-let dias=Math.floor(diff/(1000*60*60*24));
-let horas=Math.floor((diff/(1000*60*60))%24);
-let minutos=Math.floor((diff/(1000*60))%60);
-let segundos=Math.floor((diff/1000)%60);
-document.getElementById("contador").innerHTML=
-dias+" dias, "+horas+" horas, "+minutos+" minutos e "+segundos+" segundos juntos 🤍";
-},1000);
+// Música começa automaticamente
+document.getElementById("ytPlayer").src += "&autoplay=1";
+}else{alert("Senha incorreta");}
 }
 
 function toggleTexto(botao){
@@ -263,6 +254,20 @@ img.src=e.target.result;
 container.appendChild(img);
 }
 reader.readAsDataURL(file);
+}
+
+function iniciarContador(){
+let dataInicio=new Date("September 05, 2025 20:00:00").getTime();
+setInterval(function(){
+let agora=new Date().getTime();
+let diff=agora-dataInicio;
+let dias=Math.floor(diff/(1000*60*60*24));
+let horas=Math.floor((diff/(1000*60*60))%24);
+let minutos=Math.floor((diff/(1000*60))%60);
+let segundos=Math.floor((diff/1000)%60);
+document.getElementById("contador").innerHTML=
+dias+" dias, "+horas+" horas, "+minutos+" minutos e "+segundos+" segundos juntos 🤍";
+},1000);
 }
 
 function criarPetala(){

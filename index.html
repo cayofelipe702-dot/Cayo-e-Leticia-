@@ -191,13 +191,13 @@ to{transform:translateY(110vh) rotate(360deg);}
 <h1>Desde 05/09/2025 ❤️</h1>
 <div class="data">O dia que começamos nossa história!</div>
 
-<div class="slider-container">
-<div class="slider" id="slider">
+<div class="slideshow-container" 
+  style="width: 400px; height: 250px; margin: auto; overflow: hidden; border-radius: 10px;">
 
 <!-- 3 FOTOS QUE VOCÊ ENVIOU -->
-<div class="slide"><img src="https://drive.google.com/uc?export=view&id=1R6ze6dOKfnfg9fmLueJjUQKTmIPm2BOB" alt="Foto 1"></div>
-<div class="slide"><img src="https://drive.google.com/uc?export=view&id=14gP5Xxt-u8qDudgjUKB6gXK6iPeg3Xro" alt="Foto 2"></div>
-<div class="slide"><img src="https://drive.google.com/uc?export=view&id=1a0cYd3suSIgKa57NDduMtqw6oKhszfpj" alt="Foto 3"></div>
+<div class="slide"><img class="slides" src="https://drive.google.com/uc?export=view&id=1R6ze6dOKfnfg9fmLueJjUQKTmIPm2BOB"style="width:100%; height:100%; object-fit: cover; display:block;" alt="Foto 1"></div>
+<div class="slide"><img class="slides" src="https://drive.google.com/uc?export=view&id=14gP5Xxt-u8qDudgjUKB6gXK6iPeg3Xro" style="width:100%; height:100%; object-fit: cover; display:none;" alt="Foto 2"></div>
+<div class="slide"><img class="slides" src="https://drive.google.com/uc?export=view&id=1a0cYd3su" style="width:100%; height:100%; object-fit: cover; display:none;" alt="Foto 3"></div>
 
 <!-- 3 FOTOS PREPARADAS PARA ADICIONAR -->
 <div class="slide"><img src="foto4.jpg"></div>
@@ -224,8 +224,7 @@ Oi meu amor, passei aqui pra te dizer que eu te amo muito, gosto muito de como v
 <button class="btn-ler" onclick="toggleTexto(this)">Ler tudo 🤍</button>
 </div>
 
-<div class="player-box" id="playerBox">
-<h3>🎵 Nossa Música</h3>
+<div class="player-box" id="playerBo
 <a href="https://www.youtube.com/watch?v=iyJDuJggiEM" target="_blank">
 <img src="https://img.youtube.com/vi/iyJDuJggiEM/hqdefault.jpg" alt="Nossa Música">
 </a>

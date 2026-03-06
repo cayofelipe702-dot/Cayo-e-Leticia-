@@ -10,55 +10,55 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#000000,#0a0a0a,#1a1a1a);
-background-size:200% 200%;
-color:white;
-overflow-x:hidden;
-text-align:center;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#000000,#0a0a0a,#1a1a1a);
+  background-size:200% 200%;
+  color:white;
+  overflow-x:hidden;
+  text-align:center;
 }
 
 @media (min-width: 1024px){
-body{display:flex;justify-content:center;}
-#conteudo{max-width:900px;width:100%;}
+  body{display:flex;justify-content:center;}
+  #conteudo{max-width:900px;width:100%;}
 }
 
 #login{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
 }
 
 #login input{
-padding:12px;
-border-radius:20px;
-border:none;
-outline:none;
-width:220px;
-text-align:center;
+  padding:12px;
+  border-radius:20px;
+  border:none;
+  outline:none;
+  width:220px;
+  text-align:center;
 }
 
 #login button{
-margin-top:10px;
-padding:10px 20px;
-border:none;
-border-radius:20px;
-background:linear-gradient(45deg,#ff4b2b,#ff416c);
-color:white;
-cursor:pointer;
+  margin-top:10px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:linear-gradient(45deg,#ff4b2b,#ff416c);
+  color:white;
+  cursor:pointer;
 }
 
 #conteudo{
-display:none;
-padding:30px 15px;
-animation:fadeIn 1.5s ease;
+  display:none;
+  padding:30px 15px;
+  animation:fadeIn 1.5s ease;
 }
 
 @keyframes fadeIn{
-from{opacity:0;transform:translateY(20px);}
-to{opacity:1;transform:translateY(0);}
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
 h1{margin-bottom:5px;}
@@ -66,286 +66,252 @@ h1{margin-bottom:5px;}
 #contador{margin-bottom:30px;font-size:15px;}
 
 .slider-container{
-width:100%;
-max-width:650px;
-margin:25px auto;
-position:relative;
-overflow:hidden;
-border-radius:25px;
-background:#111;
-box-shadow:0 20px 50px rgba(0,0,0,0.6);
+  width:100%;
+  max-width:650px;
+  height:380px;
+  margin:25px auto;
+  position:relative;
+  overflow:hidden;
+  border-radius:25px;
+  background:#111;
+  box-shadow:0 20px 50px rgba(0,0,0,0.6);
 }
 
 .slider{
-display:flex;
-transition:transform 0.8s cubic-bezier(0.65,0,0.35,1);
+  display:flex;
+  width:300%; /* só 3 slides agora */
+  height:100%;
+  transition:transform 0.8s cubic-bezier(0.65,0,0.35,1);
 }
 
 .slide{
-flex-shrink:0;
-width:100%;
-display:flex;
-justify-content:center;
-align-items:center;
+  width:100%;
+  flex-shrink:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 .slide img{
-width:100%;
-height:auto;        /* Ajusta altura automaticamente */
-object-fit:none;     /* Evita corte da imagem */
-object-position:center top; /* Foca na parte superior (rostos) */
-background:#111;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain; /* faz a foto caber inteira */
+  background:#111;
 }
 
 .slider-dots{
-position:absolute;
-bottom:15px;
-left:50%;
-transform:translateX(-50%);
-display:flex;
-gap:8px;
+  position:absolute;
+  bottom:15px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:8px;
 }
 
 .slider-dots span{
-width:8px;
-height:8px;
-background:rgba(255,255,255,0.4);
-border-radius:50%;
-transition:0.3s;
+  width:8px;
+  height:8px;
+  background:rgba(255,255,255,0.4);
+  border-radius:50%;
+  transition:0.3s;
 }
 
 .slider-dots span.active{
-width:22px;
-border-radius:10px;
-background:white;
+  width:22px;
+  border-radius:10px;
+  background:white;
 }
 
 .balao{
-max-width:650px;
-margin:20px auto;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
-padding:20px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  max-width:650px;
+  margin:20px auto;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
 .conteudo-texto{
-max-height:110px;
-overflow:hidden;
-transition:max-height 0.8s cubic-bezier(0.65,0,0.35,1);
-line-height:1.6;
-font-size:15px;
+  max-height:110px;
+  overflow:hidden;
+  transition:max-height 0.8s cubic-bezier(0.65,0,0.35,1);
+  line-height:1.6;
+  font-size:15px;
 }
 
 .balao.expandido .conteudo-texto{max-height:2000px;}
 
 .btn-ler{
-margin-top:15px;
-background:linear-gradient(45deg,#ff4b2b,#ff416c);
-border:none;
-padding:8px 18px;
-border-radius:20px;
-color:white;
-cursor:pointer;
+  margin-top:15px;
+  background:linear-gradient(45deg,#ff4b2b,#ff416c);
+  border:none;
+  padding:8px 18px;
+  border-radius:20px;
+  color:white;
+  cursor:pointer;
 }
 
 .player-box{
-margin-top:30px;
-background:rgba(255,255,255,0.08);
-padding:15px;
-border-radius:20px;
-display:none;
+  margin-top:30px;
+  background:rgba(255,255,255,0.08);
+  padding:15px;
+  border-radius:20px;
+  display:none;
 }
 
 .player-box img{
-width:120px;
-border-radius:15px;
-margin-bottom:10px;
+  width:120px;
+  border-radius:15px;
+  margin-bottom:10px;
 }
 
 iframe{
-border-radius:15px;
+  border-radius:15px;
 }
 
 .petal{
-position:fixed;
-top:-10px;
-font-size:20px;
-animation:cair linear infinite;
-pointer-events:none;
+  position:fixed;
+  top:-10px;
+  font-size:20px;
+  animation:cair linear infinite;
+  pointer-events:none;
 }
 
 @keyframes cair{
-to{transform:translateY(110vh) rotate(360deg);}
+  to{transform:translateY(110vh) rotate(360deg);}
 }
 </style>
-</head>
-
-<body>
-
-<div id="login">
-<h2>Digite nossa data 🥰</h2>
-<input type="password" id="senha" placeholder="Senha">
-<button onclick="verificar()">Entrar</button>
-</div>
-
-<div id="conteudo">
-<h1>Desde 05/09/2025 ❤️</h1>
-<div class="data">O dia que começamos nossa história!</div>
-
-<div class="slider-container">
-<div class="slider" id="slider">
-
-<div class="slide">
-<img src="IMG-20250923-WA0240(1).jpg" alt="Foto 1">
-</div>
-
-<div class="slide">
-<img src="IMG-20251228-WA0207.jpg" alt="Foto 2">
-</div>
-
-<div class="slide">
-<img src="IMG-20260305-WA0570.jpg" alt="Foto 3">
-</div>
-
-</div>
-
-<div class="slider-dots" id="dots"></div>
-</div>
-<div id="contador"></div>
-
 <div class="balao">
-<div class="conteudo-texto">
-Amor a gente já passou por tanta coisa, momentos bons, momentos difíceis, mas mesmo assim a gente continua aqui, tentando fazer dar certo. E isso significa muito pra mim. Você é uma pessoa tão bondosa, tão gentil, Eu vejo o quanto você faz por mim, o quanto se preocupa, o quanto tenta me agradar e me fazer feliz. Às vezes você nem percebe, mas suas atitudes mostram o tamanho do seu coração. Eu admiro muito isso em você. Eu sou muito apaixonada por você. Pelo seu jeito, pela sua força, pelo homem que você é. Eu admiro sua determinação, sua vontade de lutar, sua forma de não desistir fácil. Isso me dá ainda mais vontade de estar do seu lado. Eu sei que nem sempre é fácil pra gente, mas eu quero que você saiba que eu estou aqui. Pra tudo. Pra te apoiar, pra te ouvir, pra te ajudar, pra segurar sua mão quando precisar. Você não está sozinho. Eu quero construir um futuro com você. Quero crescer junto, conquistar nossas coisas juntos, realizar nossos sonhos juntos. Eu escolho você todos os dias. Eu te amo muito Cayo 🤍
-</div>
-<button class="btn-ler" onclick="toggleTexto(this)">Ler tudo 🤍</button>
+  <div class="conteudo-texto">
+    Amor a gente já passou por tanta coisa, momentos bons, momentos difíceis, mas mesmo assim a gente continua aqui, tentando fazer dar certo. E isso significa muito pra mim. Você é uma pessoa tão bondosa, tão gentil, Eu vejo o quanto você faz por mim, o quanto se preocupa, o quanto tenta me agradar e me fazer feliz. Às vezes você nem percebe, mas suas atitudes mostram o tamanho do seu coração. Eu admiro muito isso em você. Eu sou muito apaixonada por você. Pelo seu jeito, pela sua força, pelo homem que você é. Eu admiro sua determinação, sua vontade de lutar, sua forma de não desistir fácil. Isso me dá ainda mais vontade de estar do seu lado. Eu sei que nem sempre é fácil pra gente, mas eu quero que você saiba que eu estou aqui. Pra tudo. Pra te apoiar, pra te ouvir, pra te ajudar, pra segurar sua mão quando precisar. Você não está sozinho. Eu quero construir um futuro com você. Quero crescer junto, conquistar nossas coisas juntos, realizar nossos sonhos juntos. Eu escolho você todos os dias. Eu te amo muito Cayo 🤍
+  </div>
+  <button class="btn-ler" onclick="toggleTexto(this)">Ler tudo 🤍</button>
 </div>
 
 <div class="balao">
-<div class="conteudo-texto">
-Oi meu amor, passei aqui pra te dizer que eu te amo muito, gosto muito de como você é comigo, cada abraço, cada carinho, cada momentos nossos juntos sempre vai ficar guardado em meu coração, amo muito sua pessoa, seu jeito de ser, essa menina espontânea, linda, doida, faz de tudo para tudo ficar bem, admiro sua força de vontade e a paciência que tem comigo, já tivemos dias bons e dias ruins como qualquer casal, mas o importante é que estávamos juntos em todos e sempre superando os problemas. Saiba que estarei aqui sempre que você precisa amor, pra qualquer coisa, pode contar comigo sempre, iremos resolver tudo juntos e crescer para termos um futuro lindo, e o mais importante que é sempre juntos e um apoiando o outro. Eu te amo muito Leticia 🤍
-</div>
-<button class="btn-ler" onclick="toggleTexto(this)">Ler tudo 🤍</button>
+  <div class="conteudo-texto">
+    Oi meu amor, passei aqui pra te dizer que eu te amo muito, gosto muito de como você é comigo, cada abraço, cada carinho, cada momentos nossos juntos sempre vai ficar guardado em meu coração, amo muito sua pessoa, seu jeito de ser, essa menina espontânea, linda, doida, faz de tudo para tudo ficar bem, admiro sua força de vontade e a paciência que tem comigo, já tivemos dias bons e dias ruins como qualquer casal, mas o importante é que estávamos juntos em todos e sempre superando os problemas. Saiba que estarei aqui sempre que você precisa amor, pra qualquer coisa, pode contar comigo sempre, iremos resolver tudo juntos e crescer para termos um futuro lindo, e o mais importante que é sempre juntos e um apoiando o outro. Eu te amo muito Leticia 🤍
+  </div>
+  <button class="btn-ler" onclick="toggleTexto(this)">Ler tudo 🤍</button>
 </div>
 
 <div class="player-box" id="playerBox">
-<h3>🎵 Nossa Música</h3>
-<a href="https://www.youtube.com/watch?v=iyJDuJggiEM" target="_blank">
-<img src="https://img.youtube.com/vi/iyJDuJggiEM/hqdefault.jpg" alt="Nossa Música">
-</a>
-<iframe id="ytPlayer" width="100%" height="200"
-src="https://www.youtube.com/embed/iyJDuJggiEM?controls=1&showinfo=0&modestbranding=1"
-allow="autoplay; encrypted-media"
-allowfullscreen>
-</iframe>
+  <h3>🎵 Nossa Música</h3>
+  <a href="https://www.youtube.com/watch?v=iyJDuJggiEM" target="_blank">
+    <img src="https://img.youtube.com/vi/iyJDuJggiEM/hqdefault.jpg" alt="Nossa Música">
+  </a>
+  <iframe id="ytPlayer" width="100%" height="200"
+    src="https://www.youtube.com/embed/iyJDuJggiEM?controls=1&showinfo=0&modestbranding=1"
+    allow="autoplay; encrypted-media"
+    allowfullscreen>
+  </iframe>
 </div>
 <script>
-let petalas=[];
-let animando=false;
+let petalas = [];
+let animando = false;
 
-function verificar(){
-    let senha=document.getElementById("senha").value;
-    if(senha==="05/09/2025"){
-        document.getElementById("login").style.display="none";
-        document.getElementById("conteudo").style.display="block";
-        document.getElementById("playerBox").style.display="block";
-        iniciarContador();
-        iniciarAnimacao();
-        document.getElementById("ytPlayer").src += "&autoplay=1";
-    }else{
-        alert("Senha incorreta");
-    }
+function verificar() {
+  let senha = document.getElementById("senha").value;
+  if (senha === "05/09/2025") {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("conteudo").style.display = "block";
+    document.getElementById("playerBox").style.display = "block";
+    iniciarContador();
+    iniciarAnimacao();
+    document.getElementById("ytPlayer").src += "&autoplay=1";
+  } else {
+    alert("Senha incorreta");
+  }
 }
 
-function toggleTexto(botao){
-    const balao=botao.parentElement;
-    balao.classList.toggle("expandido");
-    botao.innerText=balao.classList.contains("expandido")
-        ?"Fechar 🤍"
-        :"Ler tudo 🤍";
+function toggleTexto(botao) {
+  const balao = botao.parentElement;
+  balao.classList.toggle("expandido");
+  botao.innerText = balao.classList.contains("expandido")
+    ? "Fechar 🤍"
+    : "Ler tudo 🤍";
 }
 
-function iniciarContador(){
-    let dataInicio=new Date("September 05, 2025 20:00:00").getTime();
-    setInterval(function(){
-        let agora=new Date().getTime();
-        let diff=agora-dataInicio;
-        let dias=Math.floor(diff/(1000*60*60*24));
-        let horas=Math.floor((diff/(1000*60*60))%24);
-        let minutos=Math.floor((diff/(1000*60))%60);
-        let segundos=Math.floor((diff/1000)%60);
-        document.getElementById("contador").innerHTML=
-        dias+" dias, "+horas+" horas, "+minutos+" minutos e "+segundos+" segundos juntos 🤍";
-    },1000);
+function iniciarContador() {
+  let dataInicio = new Date("September 05, 2025 20:00:00").getTime();
+  setInterval(function() {
+    let agora = new Date().getTime();
+    let diff = agora - dataInicio;
+    let dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+    let horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    let minutos = Math.floor((diff / (1000 * 60)) % 60);
+    let segundos = Math.floor((diff / 1000) % 60);
+    document.getElementById("contador").innerHTML =
+      dias + " dias, " + horas + " horas, " + minutos + " minutos e " + segundos + " segundos juntos 🤍";
+  }, 1000);
 }
 
-function criarPetala(){
-    const el=document.createElement("div");
-    el.innerHTML=Math.random()>0.5?"💍":"🤍";
-    el.style.position="fixed";
-    el.style.left=Math.random()*window.innerWidth+"px";
-    el.style.top="-30px";
-    el.style.fontSize="20px";
-    el.style.pointerEvents="none";
-    document.body.appendChild(el);
-    petalas.push({
-        el:el,
-        y:-30,
-        vel:0.8+Math.random()*1.2,
-        rot:Math.random()*360,
-        rotVel:(Math.random()-0.5)*1.5
+function criarPetala() {
+  const el = document.createElement("div");
+  el.innerHTML = Math.random() > 0.5 ? "💍" : "🤍";
+  el.style.position = "fixed";
+  el.style.left = Math.random() * window.innerWidth + "px";
+  el.style.top = "-30px";
+  el.style.fontSize = "20px";
+  el.style.pointerEvents = "none";
+  document.body.appendChild(el);
+  petalas.push({
+    el: el,
+    y: -30,
+    vel: 0.8 + Math.random() * 1.2,
+    rot: Math.random() * 360,
+    rotVel: (Math.random() - 0.5) * 1.5
+  });
+}
+
+function iniciarAnimacao() {
+  if (animando) return;
+  animando = true;
+  setInterval(criarPetala, 700);
+  function animar() {
+    petalas.forEach((p, i) => {
+      p.y += p.vel;
+      p.rot += p.rotVel;
+      p.el.style.transform = "translateY(" + p.y + "px) rotate(" + p.rot + "deg)";
+      if (p.y > window.innerHeight) {
+        p.el.remove();
+        petalas.splice(i, 1);
+      }
     });
-}
-
-function iniciarAnimacao(){
-    if(animando) return;
-    animando=true;
-    setInterval(criarPetala,700);
-    function animar(){
-        petalas.forEach((p,i)=>{
-            p.y+=p.vel;
-            p.rot+=p.rotVel;
-            p.el.style.transform="translateY("+p.y+"px) rotate("+p.rot+"deg)";
-            if(p.y>window.innerHeight){
-                p.el.remove();
-                petalas.splice(i,1);
-            }
-        });
-        requestAnimationFrame(animar);
-    }
     requestAnimationFrame(animar);
+  }
+  requestAnimationFrame(animar);
 }
 
-// SLIDES
-let slideIndex=0;
-const slider=document.getElementById("slider");
-const dotsContainer=document.getElementById("dots");
-const totalSlides=3; // atualizado para 3 slides
+// Slider atualizado para 3 slides
+let slideIndex = 0;
+const slider = document.getElementById("slider");
+const dotsContainer = document.getElementById("dots");
+const totalSlides = 3; // agora só 3 slides
 
-// cria os dots
-for(let i=0;i<totalSlides;i++){
-    let dot=document.createElement("span");
-    if(i===0) dot.classList.add("active");
-    dotsContainer.appendChild(dot);
+// Cria os dots corretos para 3 slides
+for (let i = 0; i < totalSlides; i++) {
+  let dot = document.createElement("span");
+  if (i === 0) dot.classList.add("active");
+  dotsContainer.appendChild(dot);
+}
+const dots = document.querySelectorAll("#dots span");
+
+function mudarSlide() {
+  slideIndex = (slideIndex + 1) % totalSlides;
+  slider.style.transform = "translateX(-" + slideIndex * 100 + "%)";
+  dots.forEach(d => d.classList.remove("active"));
+  dots[slideIndex].classList.add("active");
 }
 
-const dots=document.querySelectorAll("#dots span");
+setInterval(mudarSlide, 4000);
 
-function mudarSlide(){
-    slideIndex=(slideIndex+1)%totalSlides;
-    slider.style.transform="translateX(-"+slideIndex*100+"%)";
-    dots.forEach(d=>d.classList.remove("active"));
-    dots[slideIndex].classList.add("active");
-}
-
-setInterval(mudarSlide,4000);
-
-// para música ao sair da aba
-document.addEventListener("visibilitychange",function(){
-    if(document.hidden){
-        let player=document.getElementById("ytPlayer");
-        player.src = player.src.replace("&autoplay=1","");
-    }
+// Para autoplay quando abaixar a aba
+document.addEventListener("visibilitychange", function() {
+  if (document.hidden) {
+    let player = document.getElementById("ytPlayer");
+    player.src = player.src.replace("&autoplay=1", "");
+  }
 });
 </script>

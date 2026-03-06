@@ -79,24 +79,24 @@ box-shadow:0 20px 50px rgba(0,0,0,0.6);
 
 .slider{
 display:flex;
-width:300%;
+width:300%; /* ajustado para 3 slides */
 height:100%;
 transition:transform 0.8s cubic-bezier(0.65,0,0.35,1);
 }
 
 .slide{
-width:300%;
+width:100%;
 flex-shrink:0;
 display:flex;
 justify-content:center;
 align-items:center;
-overflow: hidden;
+overflow:hidden;
 }
 
 .slide img{
-max-width:300%;
-max-height:300%;
-object-fit:contain;
+max-width:100%;
+max-height:100%;
+object-fit:contain; /* mantém a imagem inteira */
 background:#111;
 }
 
@@ -210,215 +210,146 @@ to{transform:translateY(110vh) rotate(360deg);}
 <div class="slide">
 <img src="IMG-20260305-WA0570.jpg">
 </div>
-
-</div>
+</div> <!-- fecha slider -->
 
 <div class="slider-dots" id="dots"></div>
-</div>
+</div> <!-- fecha slider-container -->
 
 <div id="contador"></div>
 
 <div class="balao">
 <div class="conteudo-texto">
-
 Amor a gente já passou por tanta coisa, momentos bons, momentos difíceis, mas mesmo assim a gente continua aqui, tentando fazer dar certo. E isso significa muito pra mim. Você é uma pessoa tão bondosa, tão gentil, Eu vejo o quanto você faz por mim, o quanto se preocupa, o quanto tenta me agradar e me fazer feliz. Às vezes você nem percebe, mas suas atitudes mostram o tamanho do seu coração. Eu admiro muito isso em você. Eu sou muito apaixonada por você. Pelo seu jeito, pela sua força, pelo homem que você é. Eu admiro sua determinação, sua vontade de lutar, sua forma de não desistir fácil. Isso me dá ainda mais vontade de estar do seu lado. Eu sei que nem sempre é fácil pra gente, mas eu quero que você saiba que eu estou aqui. Pra tudo. Pra te apoiar, pra te ouvir, pra te ajudar, pra segurar sua mão quando precisar. Você não está sozinho. Eu quero construir um futuro com você. Quero crescer junto, conquistar nossas coisas juntos, realizar nossos sonhos juntos. Eu escolho você todos os dias. Eu te amo muito Cayo 🤍
-
 </div>
-
 <button class="btn-ler" onclick="toggleTexto(this)">Ler tudo 🤍</button>
 </div>
 
 <div class="balao">
 <div class="conteudo-texto">
-
 Oi meu amor, passei aqui pra te dizer que eu te amo muito, gosto muito de como você é comigo, cada abraço, cada carinho, cada momentos nossos juntos sempre vai ficar guardado em meu coração, amo muito sua pessoa, seu jeito de ser, essa menina espontânea, linda, doida, faz de tudo para tudo ficar bem, admiro sua força de vontade e a paciência que tem comigo, já tivemos dias bons e dias ruins como qualquer casal, mas o importante é que estávamos juntos em todos e sempre superando os problemas. Saiba que estarei aqui sempre que você precisa amor, pra qualquer coisa, pode contar comigo sempre, iremos resolver tudo juntos e crescer para termos um futuro lindo, e o mais importante que é sempre juntos e um apoiando o outro. Eu te amo muito Leticia 🤍
-
 </div>
-
 <button class="btn-ler" onclick="toggleTexto(this)">Ler tudo 🤍</button>
 </div>
+
 <div class="player-box" id="playerBox">
 <h3>🎵 Nossa Música</h3>
-
 <a href="https://www.youtube.com/watch?v=iyJDuJggiEM" target="_blank">
 <img src="https://img.youtube.com/vi/iyJDuJggiEM/hqdefault.jpg" alt="Nossa Música">
 </a>
-
 <iframe id="ytPlayer" width="100%" height="200"
 src="https://www.youtube.com/embed/iyJDuJggiEM?controls=1&showinfo=0&modestbranding=1"
 allow="autoplay; encrypted-media"
 allowfullscreen>
 </iframe>
 </div>
-
-</div>
+</div> <!-- fecha #conteudo -->
 
 <script>
+let petalas = [];
+let animando = false;
 
-let petalas=[];
-let animando=false;
-
-function verificar(){
-let senha=document.getElementById("senha").value;
-
-if(senha==="05/09/2025"){
-
-document.getElementById("login").style.display="none";
-document.getElementById("conteudo").style.display="block";
-document.getElementById("playerBox").style.display="block";
-
-iniciarContador();
-iniciarAnimacao();
-
-document.getElementById("ytPlayer").src += "&autoplay=1";
-
-}else{
-
-alert("Senha incorreta");
-
+function verificar() {
+    let senha = document.getElementById("senha").value;
+    if (senha === "05/09/2025") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("conteudo").style.display = "block";
+        document.getElementById("playerBox").style.display = "block";
+        iniciarContador();
+        iniciarAnimacao();
+        document.getElementById("ytPlayer").src += "&autoplay=1";
+    } else {
+        alert("Senha incorreta");
+    }
 }
 
+function toggleTexto(botao) {
+    const balao = botao.parentElement;
+    balao.classList.toggle("expandido");
+    botao.innerText = balao.classList.contains("expandido") ? "Fechar 🤍" : "Ler tudo 🤍";
 }
 
-function toggleTexto(botao){
-
-const balao=botao.parentElement;
-
-balao.classList.toggle("expandido");
-
-botao.innerText=balao.classList.contains("expandido")
-?"Fechar 🤍"
-:"Ler tudo 🤍";
-
+function iniciarContador() {
+    let dataInicio = new Date("September 05, 2025 20:00:00").getTime();
+    setInterval(function() {
+        let agora = new Date().getTime();
+        let diff = agora - dataInicio;
+        let dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+        let horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        let minutos = Math.floor((diff / (1000 * 60)) % 60);
+        let segundos = Math.floor((diff / 1000) % 60);
+        document.getElementById("contador").innerHTML =
+            dias + " dias, " + horas + " horas, " + minutos + " minutos e " + segundos + " segundos juntos 🤍";
+    }, 1000);
 }
 
-function iniciarContador(){
+function criarPetala() {
+    const el = document.createElement("div");
+    el.innerHTML = Math.random() > 0.5 ? "💍" : "🤍";
+    el.style.position = "fixed";
+    el.style.left = Math.random() * window.innerWidth + "px";
+    el.style.top = "-30px";
+    el.style.fontSize = "20px";
+    el.style.pointerEvents = "none";
+    document.body.appendChild(el);
 
-let dataInicio=new Date("September 05, 2025 20:00:00").getTime();
-
-setInterval(function(){
-
-let agora=new Date().getTime();
-let diff=agora-dataInicio;
-
-let dias=Math.floor(diff/(1000*60*60*24));
-let horas=Math.floor((diff/(1000*60*60))%24);
-let minutos=Math.floor((diff/(1000*60))%60);
-let segundos=Math.floor((diff/1000)%60);
-
-document.getElementById("contador").innerHTML=
-dias+" dias, "+horas+" horas, "+minutos+" minutos e "+segundos+" segundos juntos 🤍";
-
-},1000);
-
+    petalas.push({
+        el: el,
+        y: -30,
+        vel: 0.8 + Math.random() * 1.2,
+        rot: Math.random() * 360,
+        rotVel: (Math.random() - 0.5) * 1.5
+    });
 }
 
-function criarPetala(){
+function iniciarAnimacao() {
+    if (animando) return;
+    animando = true;
+    setInterval(criarPetala, 700);
 
-const el=document.createElement("div");
+    function animar() {
+        petalas.forEach((p, i) => {
+            p.y += p.vel;
+            p.rot += p.rotVel;
+            p.el.style.transform = "translateY(" + p.y + "px) rotate(" + p.rot + "deg)";
+            if (p.y > window.innerHeight) {
+                p.el.remove();
+                petalas.splice(i, 1);
+            }
+        });
+        requestAnimationFrame(animar);
+    }
+    requestAnimationFrame(animar);
+}
 
-el.innerHTML=Math.random()>0.5?"💍":"🤍";
+let slideIndex = 0;
+const slider = document.getElementById("slider");
+const dotsContainer = document.getElementById("dots");
+const totalSlides = 3; // ajustado para 3 slides reais
 
-el.style.position="fixed";
-el.style.left=Math.random()*window.innerWidth+"px";
-el.style.top="-30px";
-el.style.fontSize="20px";
-el.style.pointerEvents="none";
+// cria os spans dos dots
+for (let i = 0; i < totalSlides; i++) {
+    let dot = document.createElement("span");
+    if (i === 0) dot.classList.add("active");
+    dotsContainer.appendChild(dot);
+}
 
-document.body.appendChild(el);
+const dots = document.querySelectorAll("#dots span");
 
-petalas.push({
+function mudarSlide() {
+    slideIndex = (slideIndex + 1) % totalSlides;
+    slider.style.transform = "translateX(-" + slideIndex * 100 + "%)";
+    dots.forEach(d => d.classList.remove("active"));
+    dots[slideIndex].classList.add("active");
+}
 
-el:el,
-y:-30,
-vel:0.8+Math.random()*1.2,
-rot:Math.random()*360,
-rotVel:(Math.random()-0.5)*1.5
+setInterval(mudarSlide, 4000);
 
+document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+        let player = document.getElementById("ytPlayer");
+        player.src = player.src.replace("&autoplay=1", "");
+    }
 });
-
-}
-
-function iniciarAnimacao(){
-
-if(animando)return;
-
-animando=true;
-
-setInterval(criarPetala,700);
-
-function animar(){
-
-petalas.forEach((p,i)=>{
-
-p.y+=p.vel;
-p.rot+=p.rotVel;
-
-p.el.style.transform=
-"translateY("+p.y+"px) rotate("+p.rot+"deg)";
-
-if(p.y>window.innerHeight){
-
-p.el.remove();
-petalas.splice(i,1);
-
-}
-
-});
-
-requestAnimationFrame(animar);
-
-}
-
-requestAnimationFrame(animar);
-
-}
-
-let slideIndex=0;
-
-const slider=document.getElementById("slider");
-const dotsContainer=document.getElementById("dots");
-
-const totalSlides=3;
-
-for(let i=0;i<totalSlides;i++){
-
-let dot=document.createElement("span");
-
-if(i===0)dot.classList.add("active");
-
-dotsContainer.appendChild(dot);
-
-}
-
-const dots=document.querySelectorAll("#dots span");
-
-function mudarSlide(){
-
-slideIndex=(slideIndex+1)%totalSlides;
-
-slider.style.transform="translateX(-"+slideIndex*100+"%)";
-
-dots.forEach(d=>d.classList.remove("active"));
-
-dots[slideIndex].classList.add("active");
-
-}
-
-setInterval(mudarSlide,4000);
-
-document.addEventListener("visibilitychange",function(){
-
-if(document.hidden){
-
-let player=document.getElementById("ytPlayer");
-
-player.src = player.src.replace("&autoplay=1","");
-
-}
-
-});
-
 </script>
 
 </body>
